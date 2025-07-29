@@ -1,6 +1,4 @@
 import Navigation from "@/app/components/Navigation";
-import ServerHeroSection from "@/app/components/ServerHeroSection";
-import StaticHeroSection from "@/app/components/StaticHeroSection";
 import React from "react";
 
 interface HeroExamplesPageProps {
@@ -37,25 +35,7 @@ const HeroExamplesPage = ({ searchParams }: HeroExamplesPageProps) => {
           </div>
         </div>
       </div>
-      
-      {/* Render different hero types based on query parameter */}
-      {heroType === 'server' && (
-        <>
-          <h3 className="text-center py-4 bg-blue-50 font-semibold">
-            Server Component + Client Component (Full Carousel)
-          </h3>
-          <ServerHeroSection />
-        </>
-      )}
-      
-      {heroType === 'static' && (
-        <>
-          <h3 className="text-center py-4 bg-green-50 font-semibold">
-            Pure Server Component (Static, First Slide Only)
-          </h3>
-          <StaticHeroSection />
-        </>
-      )}
+      {/* Hero Section based on selected type */}
 
       {/* Content sections with max-width */}
       <div className="mx-auto max-w-[90rem]">
