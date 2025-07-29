@@ -3,14 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Mail,
   Phone,
   MapPin,
   Facebook,
-  Instagram,
   Youtube,
   Heart,
 } from "lucide-react";
@@ -36,7 +34,7 @@ const Footer: React.FC = () => {
               />
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-                  RCCG King's Palace Parish
+                  RCCG King&apos;s Palace Parish
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">
                   The Redeemed Christian Church of God
@@ -46,7 +44,7 @@ const Footer: React.FC = () => {
             <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-4 max-w-md">
               A vibrant community of believers dedicated to worship, fellowship,
               and spiritual growth across Sweden. We are committed to spreading
-              the Gospel and building God's kingdom.
+              the Gospel and building God&apos;s kingdom.
             </p>
 
             {/* Social Media Links */}
@@ -135,11 +133,11 @@ const Footer: React.FC = () => {
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-slate-600 dark:text-slate-400">
           <span className="text-center">
-            © {currentYear} RCCG King's Palace Parish
+            © {currentYear} RCCG King&apos;s Palace Parish
           </span>
           <span className="hidden sm:inline">•</span>
           <span className="flex items-center gap-1 text-center">
-            Made with <Heart className="h-3 w-3 text-red-500" /> for God's
+            Made with <Heart className="h-3 w-3 text-red-500" /> for God&apos;s
             Kingdom
           </span>
         </div>

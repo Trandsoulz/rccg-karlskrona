@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Camera } from 'lucide-react';
 
 // Sample gallery images - replace with your actual images
 const galleryImages = [

@@ -15,7 +15,6 @@ interface EventCardProps {
 }
 
 export function EventCard({
-  id,
   title,
   date,
   image,

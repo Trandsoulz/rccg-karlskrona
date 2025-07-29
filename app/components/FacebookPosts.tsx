@@ -229,7 +229,7 @@ export function FacebookPosts({
                           No content available
                         </p>
                         <p className="text-sm mt-1">
-                          This post couldn't be loaded
+                          This post couldn&apos;t be loaded
                         </p>
                       </div>
                     )}
