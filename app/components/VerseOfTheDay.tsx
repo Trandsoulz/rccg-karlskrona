@@ -22,6 +22,7 @@ const VerseOfTheDay: React.FC = () => {
     try {
       // Set loading state to show skeleton UI
       setIsLoading(true);
+      console.log(currentDate)
       
       // Fetch verse from Sanity CMS using current date as seed
       // This ensures all users see the same verse on the same day
@@ -243,9 +244,9 @@ const VerseOfTheDay: React.FC = () => {
               {/* Enhanced Verse Text */}
               <div className="relative">
                 <blockquote className="text-lg md:text-xl lg:text-2xl text-[rgb(var(--theme-on-surface)/.9)] dark:text-gray-100 leading-relaxed mb-6 font-light italic">
-                  <span className="text-[rgb(var(--theme-primary))] text-2xl md:text-3xl leading-none">"</span>
+                  <span className="text-[rgb(var(--theme-primary))] text-2xl md:text-3xl leading-none">&apos;</span>
                   {currentVerse.text}
-                  <span className="text-[rgb(var(--theme-primary))] text-2xl md:text-3xl leading-none">"</span>
+                  <span className="text-[rgb(var(--theme-primary))] text-2xl md:text-3xl leading-none">&apos;</span>
                 </blockquote>
 
                 {/* Enhanced Reference with decorative elements */}

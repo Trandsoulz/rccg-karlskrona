@@ -112,7 +112,7 @@ export function Navigation() {
               }`}
               size="sm"
             >
-              Pastor's Helpline
+              Pastor&apos;s Helpline
             </Button>
           </div>
         </div>
@@ -235,7 +235,7 @@ export function Navigation() {
                     Our Beliefs
                   </a>
                   <Button className="bg-yellow-500 text-white cursor-pointer font-bold mt-3 w-full rounded-none text-sm hover:bg-yellow-400">
-                    Pastor's Helpline
+                    Pastor&apos;s Helpline
                   </Button>
                 </div>
                 {/* Mobile Main Navigation */}
