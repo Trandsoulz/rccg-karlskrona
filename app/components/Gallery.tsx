@@ -111,6 +111,7 @@ const Gallery: React.FC = () => {
           {/* Large Featured Image - Takes 2x2 on larger screens */}
           <div className="col-span-2 row-span-2 group relative overflow-hidden bg-[rgb(var(--theme-primary)/.05)] hover:bg-[rgb(var(--theme-primary)/.1)] transition-all duration-500 hover:shadow-2xl cursor-pointer min-h-[200px]">
             <Image
+            priority
               src={galleryImages[0].image}
               alt={galleryImages[0].name}
               fill
@@ -119,7 +120,7 @@ const Gallery: React.FC = () => {
           </div>
 
           {/* Regular Images */}
-          {galleryImages.slice(1).map((image, index) => (
+          {galleryImages.slice(1).map((image) => (
             <div 
               key={image.id}
               className="group relative overflow-hidden bg-[rgb(var(--theme-primary)/.05)] hover:bg-[rgb(var(--theme-primary)/.1)] transition-all duration-500 hover:shadow-xl cursor-pointer h-32 md:h-full"

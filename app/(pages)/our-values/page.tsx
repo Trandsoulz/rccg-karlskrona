@@ -173,7 +173,7 @@ const OurValues = () => {
                 love, and service to God and one another.
               </p>
               <p className="text-[rgb(var(--theme-primary))] font-semibold text-lg">
-                "Let us hold fast the confession of our hope without wavering, for He who promised is faithful."
+                &quot;Let us hold fast the confession of our hope without wavering, for He who promised is faithful.&quot;
               </p>
               <p className="text-[rgb(var(--theme-on-surface)/.6)] text-sm mt-2">
                 - Hebrews 10:23
