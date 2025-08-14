@@ -8,6 +8,7 @@ import { fetchGallery } from "@/app/sanity/queries";
 import { Gallery as GalleryType } from "@/types/gallery";
 import Masonry from "react-masonry-css";
 import Image from "next/image";
+import Footer from "@/app/components/Footer";
 
 // Skeleton component for loading state
 const GalleryPageSkeleton: React.FC = () => {
@@ -248,10 +249,12 @@ const GalleryPage = () => {
                 >
                   <div className="relative">
                     <Image
-                      priority
                       src={image.image}
                       alt={image.name}
-                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 block"
+                      width={0}
+                      height={0}
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -334,18 +337,24 @@ const GalleryPage = () => {
           )}
 
           {/* Image Container */}
-          <div className="relative z-50 flex items-center justify-center">
+          <div className="relative z-50 flex items-center justify-center max-w-[90vw] max-h-[90vh]">
             <Image
               priority
               src={selectedImage.image}
               alt={selectedImage.name}
-              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              width={0}
+              height={0}
+              sizes="90vw"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl w-auto h-auto"
               onClick={(e) => e.stopPropagation()}
               style={{ maxHeight: "90vh", maxWidth: "90vw" }}
             />
           </div>
         </div>
       )}
+      {/* footer */}
+
+      <Footer />
     </main>
   );
 };
