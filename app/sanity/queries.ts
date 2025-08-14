@@ -1,10 +1,11 @@
 "use server"
 
 import { client } from "./client";
-import { SanityBanner, Banner } from "@/types/banner";
-import { SanityFacebookPost, FacebookPost } from "@/types/facebook";
-import { SanityEvent, Event } from "@/types/event";
-import { SanityVerse, Verse } from "@/types/verse";
+import { SanityBanner, Banner } from "@/app/types/banner";
+import { SanityFacebookPost, FacebookPost } from "@/app/types/facebook";
+import { SanityEvent, Event } from "@/app/types/event";
+import { SanityVerse, Verse } from "@/app/types/verse";
+import { SanityGallery, Gallery } from "@/types/gallery";
 import { getOptimizedImageUrl } from "@/lib/sanity-image";
 
 // Groq query to fetch banners
@@ -33,13 +34,20 @@ const EVENT_QUERY = `*[_type == "event"] | order(publishedAt desc) {
   publishedAt
 }`;
 
-const VERSEOFTHEDAY_QUERY = `*[_type == "verse"] | order(publishedAt desc) {
+const VERSE_OF_THE_DAY_QUERY = `*[_type == "verse"] | order(publishedAt desc) {
   _id,
   text,
   book,
   chapter,
   verse,
   publishedAt
+}`;
+
+const GALLERY_QUERY = `*[_type == "gallery"] | order(uploadedAt asc) {
+  _id,
+  name,
+  image,
+  uploadedAt
 }`;
 
 // Fetch banners from Sanity
@@ -198,8 +206,8 @@ params.slug: "prayer-retreat-2025"
 // Fetch verses from Sanity
 export async function fetchVerses(): Promise<Verse[]> {
   try {
-    const verses: SanityVerse[] = await client.fetch(VERSEOFTHEDAY_QUERY);
-    
+    const verses: SanityVerse[] = await client.fetch(VERSE_OF_THE_DAY_QUERY);
+
     // Transform Sanity data to Verse format
     return verses.map(verse => ({
       id: verse._id,
@@ -255,5 +263,25 @@ export async function fetchVerseOfTheDay(): Promise<Verse | null> {
     // Log error and return null if anything goes wrong
     console.error('Error fetching verse of the day:', error);
     return null;
+  }
+}
+
+// Fetch gallery images from Sanity
+export async function fetchGallery(): Promise<Gallery[]> {
+  try {
+    const galleryImages: SanityGallery[] = await client.fetch(GALLERY_QUERY);
+    
+    // Transform Sanity data to Gallery format
+    return galleryImages.map(gallery => ({
+      id: gallery._id,
+      name: gallery.name,
+      image: gallery.image 
+        ? getOptimizedImageUrl(gallery.image)
+        : '',
+      uploadedAt: gallery.uploadedAt,
+    }));
+  } catch (error) {
+    console.error('Error fetching gallery images:', error);
+    return [];
   }
 }

@@ -4,14 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Youtube,
-  Heart,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Youtube } from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -134,11 +127,6 @@ const Footer: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-slate-600 dark:text-slate-400">
           <span className="text-center">
             © {currentYear} RCCG King&apos;s Palace Parish
-          </span>
-          <span className="hidden sm:inline">•</span>
-          <span className="flex items-center gap-1 text-center">
-            Made with <Heart className="h-3 w-3 text-red-500" /> for God&apos;s
-            Kingdom
           </span>
         </div>
       </div>

@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Verse } from '@/types/verse';
-import { fetchVerseOfTheDay } from '@/sanity/queries';
+import { Verse } from '@/app/types/verse';
+import { fetchVerseOfTheDay } from '@/app/sanity/queries';
 
 // Helper function to format verse reference
 const formatVerseReference = (verse: Verse): string => {

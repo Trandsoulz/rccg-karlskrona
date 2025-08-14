@@ -8,8 +8,8 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { fetchFaceBookPosts } from "@/sanity/queries";
-import { FacebookPost } from "@/types/facebook";
+import { fetchFaceBookPosts } from "@/app/sanity/queries";
+import { FacebookPost } from "@/app/types/facebook";
 
 interface FacebookPostsProps {
   autoPlay?: boolean;

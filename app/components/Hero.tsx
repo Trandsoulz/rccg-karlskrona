@@ -10,8 +10,8 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { fetchBanners } from "@/sanity/queries";
-import { Banner } from "@/types/banner";
+import { fetchBanners } from "@/app/sanity/queries";
+import { Banner } from "@/app/types/banner";
 
 interface HeroSlide {
   id: string;

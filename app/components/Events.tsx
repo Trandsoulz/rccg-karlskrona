@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { EventCard } from "@/app/components/event-card";
-import { fetchEvents } from "@/sanity/queries";
-import { Event } from "@/types/event";
+import { fetchEvents } from "@/app/sanity/queries";
+import { Event } from "@/app/types/event";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
 import Link from "next/link";

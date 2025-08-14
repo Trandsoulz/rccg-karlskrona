@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Banner } from "@/types/banner";
-import { fetchBanners } from "@/sanity/queries";
+import { Banner } from "@/app/types/banner";
+import { fetchBanners } from "@/app/sanity/queries";
 
 export function useBanners() {
   const [banners, setBanners] = useState<Banner[]>([]);
