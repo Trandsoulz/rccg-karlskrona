@@ -18,7 +18,7 @@ export function getOptimizedImageUrl(
   source: any,
   width?: number,
   height?: number,
-  quality: number = 90
+  quality: number = 100
 ): string {
   if (!isSanityConfigured() || !source) {
     return '';
@@ -38,6 +38,20 @@ export function getOptimizedImageUrl(
     return imageBuilder.quality(quality).format('webp').url();
   } catch (error) {
     console.warn('Error generating optimized image URL:', error);
+    return '';
+  }
+}
+
+// Generate maximum quality image URL without any size constraints
+export function getMaxQualityImageUrl(source: any): string {
+  if (!isSanityConfigured() || !source) {
+    return '';
+  }
+
+  try {
+    return builder.image(source).quality(100).format('webp').url();
+  } catch (error) {
+    console.warn('Error generating max quality image URL:', error);
     return '';
   }
 }

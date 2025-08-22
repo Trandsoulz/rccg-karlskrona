@@ -6,7 +6,7 @@ import { SanityFacebookPost, FacebookPost } from "@/app/types/facebook";
 import { SanityEvent, Event } from "@/app/types/event";
 import { SanityVerse, Verse } from "@/app/types/verse";
 import { SanityGallery, Gallery } from "@/types/gallery";
-import { getOptimizedImageUrl } from "@/lib/sanity-image";
+import { getOptimizedImageUrl, getMaxQualityImageUrl } from "@/lib/sanity-image";
 
 // Groq query to fetch banners
 const BANNER_QUERY = `*[_type == "banner"] {
@@ -28,6 +28,7 @@ const FACEBOOK_QUERY = `*[_type == "facebook"] | order(publishedAt desc) {
 const EVENT_QUERY = `*[_type == "event"] | order(publishedAt desc) {
   _id,
   title,
+  description,
   date,
   image,
   ctaLink,
@@ -132,15 +133,52 @@ export async function fetchEvents(): Promise<Event[]> {
     return events.map(event => ({
       id: event._id,
       title: event.title,
+      description: event.description,
       date: event.date,
       image: event.image 
-        ? getOptimizedImageUrl(event.image, 600, 400)
+        ? getOptimizedImageUrl(event.image)
         : '',
       ctaLink: event.ctaLink,
     }));
   } catch (error) {
     console.error('Error fetching events:', error);
     return [];
+  }
+}
+
+// Fetch a single event by slug/ctaLink
+export async function fetchEventById(slug: string): Promise<Event | null> {
+  try {
+    const event: SanityEvent = await client.fetch(
+      `*[_type == "event" && ctaLink == $slug][0] {
+        _id,
+        title,
+        description,
+        date,
+        image,
+        ctaLink,
+        publishedAt
+      }`,
+      { slug }
+    );
+
+    if (!event) {
+      return null;
+    }
+
+    return {
+      id: event._id,
+      title: event.title,
+      description: event.description,
+      date: event.date,
+      image: event.image 
+        ? getMaxQualityImageUrl(event.image)
+        : '',
+      ctaLink: event.ctaLink,
+    };
+  } catch (error) {
+    console.error('Error fetching event by ID:', error);
+    return null;
   }
 }
 
@@ -151,6 +189,7 @@ export async function fetchEventByCtaLink(ctaLink: string): Promise<Event | null
       `*[_type == "event" && ctaLink == $ctaLink][0] {
         _id,
         title,
+        description,
         date,
         image,
         ctaLink,
@@ -166,6 +205,7 @@ export async function fetchEventByCtaLink(ctaLink: string): Promise<Event | null
     return {
       id: event._id,
       title: event.title,
+      description: event.description,
       date: event.date,
       image: event.image 
         ? getOptimizedImageUrl(event.image, 600, 400)
@@ -276,7 +316,7 @@ export async function fetchGallery(): Promise<Gallery[]> {
       id: gallery._id,
       name: gallery.name,
       image: gallery.image 
-        ? getOptimizedImageUrl(gallery.image)
+        ? getMaxQualityImageUrl(gallery.image)
         : '',
       uploadedAt: gallery.uploadedAt,
     }));

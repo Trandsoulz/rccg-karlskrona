@@ -72,10 +72,10 @@ const Footer: React.FC = () => {
                 Find a Parish
               </Link>
               <Link
-                href="/calendar"
+                href="/events"
                 className="block text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
               >
-                2025 Calendar
+                Events
               </Link>
               <Link
                 href="/resources"
@@ -94,9 +94,14 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-slate-500 dark:text-slate-400 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <a
+                  href="https://maps.app.goo.gl/tUuzjxY1gxW12TYr6?g_st=ipc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
+                >
                   Karlskrona, Sweden
-                </p>
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-slate-500 dark:text-slate-400 flex-shrink-0" />

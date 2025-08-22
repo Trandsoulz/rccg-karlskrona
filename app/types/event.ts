@@ -3,15 +3,17 @@
 export interface Event {
   id: string;
   title: string;
+  description: string;
   date: string;
   image?: string;
-  ctaLink: string;
+  ctaLink?: string;
 }
 
 // Sanity CMS Event Types
 export interface SanityEvent {
   _id: string;
   title: string;
+  description: string;
   date: string;
   image?: {
     asset: {

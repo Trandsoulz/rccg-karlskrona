@@ -38,9 +38,9 @@ const navLinks = [
     ]
   },
   { label: "GALLERY", href: "/gallery" },
-  { label: "PARISHES", href: "/parishes" },
+  { label: "MESSAGES", href: "/messages" },
   { label: "RESOURCES", href: "/resources" },
-  { label: "2025 CALENDAR", href: "/calendar" },
+  { label: "EVENTS", href: "/events" },
   { label: "CONTACT", href: "/contact" },
 ];
 
