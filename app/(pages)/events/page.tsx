@@ -120,7 +120,7 @@ const EventsPage = () => {
                 No Upcoming Events
               </h1>
               <p className="text-[rgb(var(--theme-on-surface)/.6)] text-lg">
-                We don't have any events scheduled at the moment. Check back soon for upcoming church activities and gatherings!
+                We don&apos;t have any events scheduled at the moment. Check back soon for upcoming church activities and gatherings!
               </p>
               <Link
                 href="/"

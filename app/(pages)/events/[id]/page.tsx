@@ -136,7 +136,7 @@ const EventPage = ({ params }: EventPageProps) => {
               Event Not Found
             </h1>
             <p className="text-[rgb(var(--theme-on-surface)/.6)] text-lg mb-8">
-              The event you're looking for doesn't exist or has been removed.
+              The event you&apos;re looking for doesn&apos;t exist or has been removed.
             </p>
             <Link
               href="/events"

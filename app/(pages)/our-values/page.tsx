@@ -4,7 +4,6 @@
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 
 const OurValues = () => {
   const [isVisible, setIsVisible] = useState(false);
