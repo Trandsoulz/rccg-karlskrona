@@ -30,9 +30,9 @@ const navLinks = [
     href: "/church",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Beliefs", href: "/beliefs" },
-      { label: "Our Values", href: "/our-values" },
-      { label: "Our Mission", href: "/our-mission" },
+      { label: "Our Beliefs", href: "/beliefs" },
+      { label: "Our Values", href: "/values" },
+      { label: "Our Mission", href: "/mission" },
       { label: "Leadership", href: "/leadership" },
       { label: "History", href: "/history" },
     ],
