@@ -25,17 +25,17 @@ import { Menu, Sun, Moon, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { label: "HOME", href: "/" },
-  { 
-    label: "THE CHURCH", 
+  {
+    label: "THE CHURCH",
     href: "/church",
     hasDropdown: true,
     dropdownItems: [
-      { label: "About Us", href: "/about" },
+      { label: "Beliefs", href: "/beliefs" },
       { label: "Our Values", href: "/our-values" },
       { label: "Our Mission", href: "/our-mission" },
       { label: "Leadership", href: "/leadership" },
       { label: "History", href: "/history" },
-    ]
+    ],
   },
   { label: "GALLERY", href: "/gallery" },
   { label: "MESSAGES", href: "/messages" },
@@ -47,10 +47,12 @@ const navLinks = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(
+    null
+  );
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
-  
+
   // Check if we're on the home page
   const isHomePage = pathname === "/" || pathname === "/home";
 
@@ -231,15 +233,15 @@ export function Navigation() {
         <div className="mx-auto max-w-[90rem] flex items-center justify-between px-4 md:px-8 py-3 min-h-fit overflow-visible">
           {/* Logo & Branding */}
           <div className="flex items-center gap-3 flex-shrink-0">
-           <Link href={'/home'}>
-            <Image
-              src="/logo-rccg-sweden.png"
-              alt="RCCG Sweden Logo"
-              width={200}
-              height={200}
-              className={`w-fit max-h-16 object-contain transition-all duration-300 ${getLogoStyles()}`}
-            />
-           </Link>
+            <Link href={"/home"}>
+              <Image
+                src="/logo-rccg-sweden.png"
+                alt="RCCG Sweden Logo"
+                width={200}
+                height={200}
+                className={`w-fit max-h-16 object-contain transition-all duration-300 ${getLogoStyles()}`}
+              />
+            </Link>
           </div>
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden md:flex overflow-visible">
@@ -248,7 +250,9 @@ export function Navigation() {
                 <NavigationMenuItem key={link.label} className="flex-shrink-0">
                   {link.hasDropdown ? (
                     <>
-                      <NavigationMenuTrigger className={`px-3 py-2 rounded font-medium transition-all duration-500 whitespace-nowrap bg-transparent hover:bg-transparent data-[state=open]:bg-transparent ${getNavLinkStyles()}`}>
+                      <NavigationMenuTrigger
+                        className={`px-3 py-2 rounded font-medium transition-all duration-500 whitespace-nowrap bg-transparent hover:bg-transparent data-[state=open]:bg-transparent ${getNavLinkStyles()}`}
+                      >
                         {link.label}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg p-2 min-w-[200px]">
@@ -323,7 +327,8 @@ export function Navigation() {
               >
                 <SheetTitle className="sr-only">Main Navigation</SheetTitle>
                 <SheetDescription className="sr-only">
-                  Access church navigation links, prayer requests, and helpful resources
+                  Access church navigation links, prayer requests, and helpful
+                  resources
                 </SheetDescription>
                 {/* Mobile Top Bar - matches desktop theme */}
                 <div className="p-4 bg-theme-primary overflow-hidden">
@@ -370,16 +375,24 @@ export function Navigation() {
                             onClick={() => toggleMobileDropdown(link.label)}
                             className="w-full flex items-center justify-between py-3 text-theme-on-surface dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded px-2 transition-all duration-300 ease-in-out border-b border-gray-100 dark:border-gray-700 whitespace-nowrap transform hover:scale-[1.02] active:scale-[0.98]"
                           >
-                            <span className="transition-colors duration-200">{link.label}</span>
-                            <ChevronDown className={`h-4 w-4 transition-all duration-300 ease-in-out ${
-                              mobileDropdownOpen === link.label ? 'rotate-180 text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'
-                            }`} />
+                            <span className="transition-colors duration-200">
+                              {link.label}
+                            </span>
+                            <ChevronDown
+                              className={`h-4 w-4 transition-all duration-300 ease-in-out ${
+                                mobileDropdownOpen === link.label
+                                  ? "rotate-180 text-blue-600 dark:text-blue-400"
+                                  : "text-gray-500 dark:text-gray-400"
+                              }`}
+                            />
                           </button>
-                          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                            mobileDropdownOpen === link.label 
-                              ? 'max-h-48 opacity-100' 
-                              : 'max-h-0 opacity-0'
-                          }`}>
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                              mobileDropdownOpen === link.label
+                                ? "max-h-48 opacity-100"
+                                : "max-h-0 opacity-0"
+                            }`}
+                          >
                             <div className="ml-4 space-y-1 pb-2 pt-1">
                               {link.dropdownItems?.map((item, index) => (
                                 <Link
@@ -387,7 +400,10 @@ export function Navigation() {
                                   href={item.href}
                                   className={`block py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded px-2 transition-all duration-200 ease-in-out transform hover:translate-x-1 hover:text-blue-600 dark:hover:text-blue-400`}
                                   style={{
-                                    animationDelay: mobileDropdownOpen === link.label ? `${index * 50}ms` : '0ms'
+                                    animationDelay:
+                                      mobileDropdownOpen === link.label
+                                        ? `${index * 50}ms`
+                                        : "0ms",
                                   }}
                                   prefetch={false}
                                 >

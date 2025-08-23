@@ -1,4 +1,3 @@
-
 'use client'
 
 import Navigation from "@/app/components/Navigation";
