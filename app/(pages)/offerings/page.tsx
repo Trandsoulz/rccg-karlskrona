@@ -107,7 +107,7 @@ const Offerings = () => {
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <div className={`text-center transition-all duration-1000 delay-200 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             <blockquote className="text-xl md:text-2xl lg:text-3xl font-medium italic leading-relaxed mb-4">
-              "Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."
+              &ldquo;Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap.&rdquo;
             </blockquote>
             <cite className="text-lg md:text-xl opacity-90">Luke 6:38</cite>
           </div>
@@ -123,7 +123,7 @@ const Offerings = () => {
                 Ways to Give
               </h2>
               <p className="text-[rgb(var(--theme-on-surface)/.7)] text-lg max-w-2xl mx-auto">
-                Choose how you would like to support our ministry and God's work
+                Choose how you would like to support our ministry and God&apos;s work
               </p>
             </div>
 
@@ -157,7 +157,7 @@ const Offerings = () => {
                 How to Give
               </h2>
               <p className="text-[rgb(var(--theme-on-surface)/.7)] text-lg max-w-2xl mx-auto">
-                We've made it easy for you to give using your preferred method
+                We&apos;ve made it easy for you to give using your preferred method
               </p>
             </div>
 
@@ -334,11 +334,11 @@ const Offerings = () => {
               Thank You for Your Generosity
             </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-6 opacity-90">
-              Every gift, no matter the size, makes a significant impact in advancing God's kingdom. 
+              Every gift, no matter the size, makes a significant impact in advancing God&apos;s kingdom. 
               Your faithful giving enables us to continue our mission of reaching every nation for Jesus Christ.
             </p>
             <p className="text-base italic opacity-80">
-              "Remember this: Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously." - 2 Corinthians 9:6
+              &ldquo;Remember this: Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously.&rdquo; - 2 Corinthians 9:6
             </p>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Navigation from "@/app/components/Navigation";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Camera, ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { fetchGallery } from "@/app/sanity/queries";
@@ -83,6 +83,17 @@ const GalleryPage = () => {
     loadGalleryImages();
   }, []);
 
+  // Navigation function with useCallback to avoid re-creation
+  const navigateImage = useCallback((direction: "prev" | "next") => {
+    const newIndex =
+      direction === "prev"
+        ? (currentImageIndex - 1 + galleryImages.length) % galleryImages.length
+        : (currentImageIndex + 1) % galleryImages.length;
+
+    setCurrentImageIndex(newIndex);
+    setSelectedImage(galleryImages[newIndex]);
+  }, [currentImageIndex, galleryImages]);
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -99,7 +110,7 @@ const GalleryPage = () => {
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [selectedImage, currentImageIndex]);
+  }, [selectedImage, navigateImage]);
 
   const openLightbox = (image: GalleryType, index: number) => {
     setSelectedImage(image);
@@ -110,16 +121,6 @@ const GalleryPage = () => {
   const closeLightbox = () => {
     setSelectedImage(null);
     document.body.style.overflow = "unset"; // Restore scrolling
-  };
-
-  const navigateImage = (direction: "prev" | "next") => {
-    const newIndex =
-      direction === "prev"
-        ? (currentImageIndex - 1 + galleryImages.length) % galleryImages.length
-        : (currentImageIndex + 1) % galleryImages.length;
-
-    setCurrentImageIndex(newIndex);
-    setSelectedImage(galleryImages[newIndex]);
   };
 
   // Show skeleton while loading
