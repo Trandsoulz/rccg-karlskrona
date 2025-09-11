@@ -157,7 +157,7 @@ const VerseOfTheDay: React.FC = () => {
   if (isLoading) {
     return (
       <section className="py-16 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.02)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-6">
+        <div className="mx-auto max-w-[100rem] px-6">
           <div className="max-w-4xl mx-auto text-center">
             {/* Skeleton Header */}
             <div className="mb-6">
@@ -191,7 +191,7 @@ const VerseOfTheDay: React.FC = () => {
   if (error || !currentVerse) {
     return (
       <section className="py-16 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.02)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-6">
+        <div className="mx-auto max-w-[100rem] px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[rgb(var(--theme-on-surface))] mb-2">
               Verse of the Day
@@ -221,7 +221,7 @@ const VerseOfTheDay: React.FC = () => {
 
   return (
     <section className="py-16 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.02)] dark:from-gray-900 dark:to-gray-800">
-      <div className="mx-auto max-w-[90rem] px-6">
+      <div className="mx-auto max-w-[100rem] px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Section Header with Animation */}
           <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>

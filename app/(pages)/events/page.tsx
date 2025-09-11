@@ -83,8 +83,8 @@ const EventsPage = () => {
     return (
       <main>
         <Navigation />
-        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-          <div className="mx-auto max-w-[90rem] px-6">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+          <div className="px-6">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--theme-on-surface))] mb-6">
                 Events Unavailable
@@ -112,8 +112,8 @@ const EventsPage = () => {
     return (
       <main>
         <Navigation />
-        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-          <div className="mx-auto max-w-[90rem] px-6">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+          <div className="px-6">
             <div className="text-center">
               <Calendar className="w-16 h-16 text-[rgb(var(--theme-primary))] mx-auto mb-6" />
               <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--theme-on-surface))] mb-6">
@@ -143,8 +143,8 @@ const EventsPage = () => {
       <Navigation />
 
       {/* Hero Header */}
-      <section className="pt-32 pb-20 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.04)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-6">
+      <section className="pt-32 pb-20 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.04)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+        <div className="px-6">
           <div
             className={`text-center transition-all duration-1000 transform ${
               isVisible

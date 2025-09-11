@@ -205,7 +205,7 @@ export function Hero({
             >
               <div className="relative w-full h-full">
                 {/* Background Image */}
-                <div className="absolute inset-0 z-0 max-w-[90rem] mx-auto overflow-hidden">
+                <div className="absolute inset-0 z-0 max-w-[100rem] mx-auto overflow-hidden">
                   <div
                     className="w-full h-full flex items-center justify-center overflow-hidden"
                     style={{

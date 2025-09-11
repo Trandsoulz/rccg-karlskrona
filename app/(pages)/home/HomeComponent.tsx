@@ -20,7 +20,7 @@ const HomePage = () => {
       <Hero />
 
       {/* Content sections with max-width */}
-      <div className="mx-auto max-w-[90rem]">
+      <div className="mx-auto max-w-[100rem]">
         {/* Core Values Section - What We Believe, Our Values, Our Priorities */}
         <CoreValues />
 

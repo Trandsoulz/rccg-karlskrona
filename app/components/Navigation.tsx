@@ -38,7 +38,7 @@ const navLinks = [
     ],
   },
   { label: "GALLERY", href: "/gallery" },
-  { label: "MESSAGES", href: "/messages" },
+  // { label: "MESSAGES", href: "/messages" },
   { label: "RESOURCES", href: "/resources" },
   { label: "EVENTS", href: "/events" },
   { label: "CONTACT", href: "/contact" },
@@ -172,7 +172,7 @@ export function Navigation() {
 
   return (
     <nav
-      className={`w-full z-50 fixed top-0 left-0 right-0 min-h-fit overflow-visible transition-all duration-500 max-w-[90rem] mx-auto ${getNavStyles()}`}
+      className={`w-full z-50 fixed top-0 left-0 right-0 min-h-fit overflow-visible transition-all duration-500 max-w-[100rem] mx-auto ${getNavStyles()}`}
     >
       {/* Top Bar - hidden on mobile, visible on desktop */}
       <div
@@ -219,12 +219,14 @@ export function Navigation() {
               )}
             </Button>
 
-            <Button
-              className={`text-white cursor-pointer font-bold rounded-none px-4 py-2 transition-all duration-500 ${getHelplineButtonStyles()}`}
-              size="sm"
-            >
-              Pastor&apos;s Helpline
-            </Button>
+            <a href="tel:+46735675357">
+              <Button
+                className={`text-white cursor-pointer font-bold rounded-none px-4 py-2 transition-all duration-500 ${getHelplineButtonStyles()}`}
+                size="sm"
+              >
+                Pastor&apos;s Helpline
+              </Button>
+            </a>
           </div>
         </div>
       </div>
@@ -284,11 +286,13 @@ export function Navigation() {
                 </NavigationMenuItem>
               ))}
               <NavigationMenuItem className="flex-shrink-0">
-                <Button
-                  className={`text-white font-bold ml-2 cursor-pointer px-4 py-2 whitespace-nowrap rounded-none transition-all duration-500 ${getOfferingsButtonStyles()}`}
-                >
-                  OFFERINGS
-                </Button>
+                <Link href="/offerings">
+                  <Button
+                    className={`text-white font-bold ml-2 cursor-pointer px-4 py-2 whitespace-nowrap rounded-none transition-all duration-500 ${getOfferingsButtonStyles()}`}
+                  >
+                    OFFERINGS
+                  </Button>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -361,9 +365,11 @@ export function Navigation() {
                   >
                     Our Beliefs
                   </a>
-                  <Button className="bg-theme-secondary text-white cursor-pointer font-bold mt-3 w-full rounded-none text-sm hover:bg-yellow-400">
-                    Pastor&apos;s Helpline
-                  </Button>
+                  <a href="tel:+46735675357">
+                    <Button className="bg-theme-secondary text-white cursor-pointer font-bold mt-3 w-full rounded-none text-sm hover:bg-yellow-400">
+                      Pastor&apos;s Helpline
+                    </Button>
+                  </a>
                 </div>
                 {/* Mobile Main Navigation */}
                 <div className="p-4 overflow-y-auto flex-1">
@@ -424,9 +430,12 @@ export function Navigation() {
                       )}
                     </div>
                   ))}
-                  <Button className="bg-theme-primary text-white cursor-pointer font-bold mt-4 w-full hover:bg-gray-700 dark:hover:bg-blue-400 whitespace-nowrap rounded-none">
+                  <Link
+                    href="/offerings"
+                    className="block py-3 text-theme-on-surface dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded px-2 transition-all duration-300 ease-in-out border-b border-gray-100 dark:border-gray-700 last:border-b-0 whitespace-nowrap transform hover:translate-x-1 hover:scale-[1.02]"
+                  >
                     OFFERINGS
-                  </Button>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>

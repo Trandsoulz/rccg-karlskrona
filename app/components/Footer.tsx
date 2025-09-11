@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 border-t border-slate-200 dark:border-slate-800">
-      <div className="mx-auto max-w-[90rem] px-6 py-12">
+      <div className="mx-auto max-w-[100rem] px-6 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Church Identity */}

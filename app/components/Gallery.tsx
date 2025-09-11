@@ -10,7 +10,7 @@ import { Gallery as GalleryType } from '@/types/gallery';
 const GallerySkeleton: React.FC = () => {
   return (
     <section className="py-16 bg-[rgb(var(--theme-background))] dark:bg-gray-900">
-      <div className="mx-auto max-w-[90rem] px-6">
+      <div className="mx-auto max-w-[100rem] px-6">
         {/* Section Header Skeleton */}
         <div className="text-center mb-12">
           <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg w-80 mx-auto mb-4 animate-pulse"></div>
@@ -79,7 +79,7 @@ const Gallery: React.FC = () => {
   if (error || galleryImages.length === 0) {
     return (
       <section className="py-16 bg-[rgb(var(--theme-background))] dark:bg-gray-900">
-        <div className="mx-auto max-w-[90rem] px-6">
+        <div className="mx-auto max-w-[100rem] px-6">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[rgb(var(--theme-on-surface))] mb-4">
               Our Church Gallery
@@ -95,7 +95,7 @@ const Gallery: React.FC = () => {
 
   return (
     <section className="py-16 bg-[rgb(var(--theme-background))] dark:bg-gray-900">
-      <div className="mx-auto max-w-[90rem] px-6">
+      <div className="mx-auto max-w-[100rem] px-6">
         {/* Section Header */}
         <div className={`text-center mb-12 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-[rgb(var(--theme-on-surface))] mb-4">

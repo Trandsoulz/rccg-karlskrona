@@ -73,7 +73,7 @@ export default function Events({
   if (isLoading) {
     return (
       <section className="py-8 md:py-16 px-4 md:px-6 bg-gradient-to-br from-[rgb(var(--theme-surface))] via-[rgb(var(--theme-background))] to-[rgb(var(--theme-surface))] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[100rem] mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <div className="h-6 md:h-8 bg-[rgb(var(--theme-on-surface)/.2)] rounded animate-pulse mb-4 mx-auto max-w-md"></div>
             <div className="h-4 bg-[rgb(var(--theme-on-surface)/.2)] rounded animate-pulse mx-auto max-w-2xl"></div>
@@ -101,7 +101,7 @@ export default function Events({
   if (error) {
     return (
       <section className="py-16 px-6 bg-gradient-to-br from-[rgb(var(--theme-surface))] via-[rgb(var(--theme-background))] to-[rgb(var(--theme-surface))] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-[100rem] mx-auto text-center">
           <div className="bg-[rgb(var(--theme-background))] dark:bg-gray-800 shadow-lg p-12 max-w-md mx-auto">
             <Calendar className="w-12 h-12 text-[rgb(var(--theme-on-surface)/.4)] mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-[rgb(var(--theme-on-surface))] mb-2">
@@ -121,7 +121,7 @@ export default function Events({
 
   return (
     <section className="py-8 md:py-16 px-4 md:px-6 bg-gradient-to-br from-[rgb(var(--theme-surface))] via-[rgb(var(--theme-background))] to-[rgb(var(--theme-surface))] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[100rem] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
           <div className="flex items-center justify-center mb-4">

@@ -104,8 +104,8 @@ const EventPage = ({ params }: EventPageProps) => {
     return (
       <main>
         <Navigation />
-        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-          <div className="mx-auto max-w-[90rem] px-6">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+          <div className="px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 {[...Array(4)].map((_, i) => (
@@ -129,8 +129,8 @@ const EventPage = ({ params }: EventPageProps) => {
     return (
       <main>
         <Navigation />
-        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-          <div className="mx-auto max-w-[90rem] px-6 text-center">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+          <div className="px-6 text-center">
             <Calendar className="w-16 h-16 text-[rgb(var(--theme-primary))] mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--theme-on-surface))] mb-6">
               Event Not Found
@@ -157,8 +157,8 @@ const EventPage = ({ params }: EventPageProps) => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-6">
+      <section className="pt-32 pb-20 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+        <div className="px-6">
           <Link
             href="/events"
             className="inline-flex items-center text-[rgb(var(--theme-primary))] hover:text-[rgb(var(--theme-accent))] transition-colors mb-8"

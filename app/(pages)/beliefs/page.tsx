@@ -288,8 +288,8 @@ const BeliefsPage = () => {
       <Navigation />
 
       {/* Hero Header */}
-      <section className="pt-32 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.04)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-4 md:px-6">
+      <section className="pt-32 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.04)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+        <div className="px-4 md:px-6">
           <div
             className={`text-center transition-all duration-1000 transform ${
               isVisible
@@ -375,7 +375,7 @@ const BeliefsPage = () => {
                         </span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-12 pb-6">
+                    <AccordionContent className="md:px-12 pb-6">
                       <div className="space-y-4">
                         <p className="text-[rgb(var(--theme-on-surface)/.8)] text-sm md:text-base leading-relaxed">
                           {belief.content}

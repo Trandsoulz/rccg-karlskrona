@@ -22,8 +22,8 @@ const GalleryPageSkeleton: React.FC = () => {
       <Navigation />
 
       {/* Hero Header Skeleton */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-6">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+        <div className="px-6">
           <div className="text-center">
             <div className="mb-8">
               <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-lg w-32 mx-auto animate-pulse"></div>
@@ -35,8 +35,8 @@ const GalleryPageSkeleton: React.FC = () => {
       </section>
 
       {/* Gallery Content Skeleton */}
-      <section className="py-16 bg-[rgb(var(--theme-background))] dark:bg-gray-900">
-        <div className="mx-auto max-w-[90rem] px-6">
+      <section className="py-16 bg-[rgb(var(--theme-background))] dark:bg-gray-900 mx-auto max-w-[100rem]">
+        <div className="px-6">
           {/* Masonry Grid Skeleton */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(12)].map((_, index) => (
@@ -132,8 +132,8 @@ const GalleryPage = () => {
     return (
       <main>
         <Navigation />
-        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-          <div className="mx-auto max-w-[90rem] px-6">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+          <div className="px-6">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--theme-on-surface))] mb-6">
                 Gallery Unavailable
@@ -160,8 +160,8 @@ const GalleryPage = () => {
     return (
       <main>
         <Navigation />
-        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800">
-          <div className="mx-auto max-w-[90rem] px-6">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.05)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+          <div className="px-6">
             <div className="text-center">
               <Camera className="w-16 h-16 text-[rgb(var(--theme-primary))] mx-auto mb-6" />
               <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--theme-on-surface))] mb-6">
@@ -191,8 +191,8 @@ const GalleryPage = () => {
       <Navigation />
 
       {/* Hero Header */}
-      <section className="pt-32 pb-20 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.04)] dark:from-gray-900 dark:to-gray-800">
-        <div className="mx-auto max-w-[90rem] px-6">
+      <section className="pt-32 pb-20 md:pt-36 md:pb-24 bg-gradient-to-br from-[rgb(var(--theme-background))] to-[rgb(var(--theme-primary)/.04)] dark:from-gray-900 dark:to-gray-800 mx-auto max-w-[100rem]">
+        <div className="px-6">
           <div
             className={`text-center transition-all duration-1000 transform ${
               isVisible
