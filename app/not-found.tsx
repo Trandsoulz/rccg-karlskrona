@@ -80,7 +80,7 @@ const NotFound = () => {
               Page Not Found
             </h2>
             <p className="text-[rgb(var(--theme-on-surface)/.7)] text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto px-2 mb-8">
-              We couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.
+              We couldn&apos;t find the page you&apos;re looking for. It might have been moved, deleted, or you entered the wrong URL.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -153,7 +153,7 @@ const NotFound = () => {
                 Need Help?
               </h3>
               <p className="text-[rgb(var(--theme-on-surface)/.7)] text-base md:text-lg leading-relaxed mb-6">
-                If you can't find what you're looking for, our team is here to help. 
+                If you can&apos;t find what you&apos;re looking for, our team is here to help. 
                 Feel free to contact us with any questions or concerns.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

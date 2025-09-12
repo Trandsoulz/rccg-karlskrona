@@ -4,7 +4,7 @@ import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Copy, Check } from "lucide-react";
 
 const Contact = () => {
@@ -126,7 +126,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-[rgb(var(--theme-on-surface)/.7)] text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto px-2">
-              We'd love to hear from you. Reach out to us for prayer, questions, or to connect with our church family
+              We&apos;d love to hear from you. Reach out to us for prayer, questions, or to connect with our church family
             </p>
           </div>
         </div>
@@ -304,8 +304,8 @@ const Contact = () => {
               We Look Forward to Hearing from You
             </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-6 opacity-90">
-              Whether you're seeking prayer, have questions about faith, or want to join our church family, 
-              we're here for you. God has a plan for your life, and we'd love to be part of your journey.
+              Whether you&apos;re seeking prayer, have questions about faith, or want to join our church family, 
+              we&apos;re here for you. God has a plan for your life, and we&apos;d love to be part of your journey.
             </p>
           </div>
         </div>
