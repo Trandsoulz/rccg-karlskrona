@@ -10,7 +10,6 @@ import { Copy, Check } from "lucide-react";
 
 const Offerings = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [copiedAccount, setCopiedAccount] = useState(false);
   const [copiedSwish, setCopiedSwish] = useState(false);
 
   useEffect(() => {
@@ -19,23 +18,19 @@ const Offerings = () => {
   }, []);
 
   const bankDetails = {
-    bankName: "Nordea Bank",
-    accountNumber: "1234 56 78901",
-    accountHolder: "RCCG Sweden Karlskrona",
-    swishNumber: "+46 70 123 45 67",
-    iban: "SE12 3456 7890 1234 5678 9012",
-    bic: "NDEASESS"
+    bankName: "SEB",
+    bankAddress: "SEB, 106 40 Stockholm",
+    accountHolder: "The Redeemed Christian Church of God, Karlskrona",
+    accountHolderShort: "R C C G Karlskrona",
+    swishNumber: "1236332852",
+    iban: "SE9750000000056811009349",
+    bic: "ESSESESS"
   };
 
-  const copyToClipboard = (text: string, type: 'account' | 'swish') => {
+  const copyToClipboard = (text: string, type: 'swish') => {
     navigator.clipboard.writeText(text);
-    if (type === 'account') {
-      setCopiedAccount(true);
-      setTimeout(() => setCopiedAccount(false), 2000);
-    } else {
-      setCopiedSwish(true);
-      setTimeout(() => setCopiedSwish(false), 2000);
-    }
+    setCopiedSwish(true);
+    setTimeout(() => setCopiedSwish(false), 2000);
   };
 
   const offeringTypes = [
@@ -178,11 +173,11 @@ const Offerings = () => {
                 <CardContent className="text-center">
                   <div className="bg-white p-6 rounded-lg shadow-inner mb-4 max-w-sm mx-auto">
                     <Image
-                      src="/general.jpg" // Using placeholder image as requested
-                      alt="QR Code for donations"
+                      src="/swiss-account.jpg"
+                      alt="QR Code for Swish donations"
                       width={200}
                       height={200}
-                      className="mx-auto"
+                      className="mx-auto bg-white"
                     />
                   </div>
                   <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">
@@ -212,22 +207,14 @@ const Offerings = () => {
                         <p className="font-medium text-[rgb(var(--theme-on-surface))]">{bankDetails.bankName}</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex justify-between items-center p-3 bg-[rgb(var(--theme-surface))] dark:bg-gray-700 rounded-lg">
                       <div>
-                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">Account Number</p>
-                        <p className="font-medium text-[rgb(var(--theme-on-surface))]">{bankDetails.accountNumber}</p>
+                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">Bank Address</p>
+                        <p className="font-medium text-[rgb(var(--theme-on-surface))]">{bankDetails.bankAddress}</p>
                       </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => copyToClipboard(bankDetails.accountNumber, 'account')}
-                        className="text-[rgb(var(--theme-primary))]"
-                      >
-                        {copiedAccount ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                      </Button>
                     </div>
-
+                    
                     <div className="flex justify-between items-center p-3 bg-[rgb(var(--theme-surface))] dark:bg-gray-700 rounded-lg">
                       <div>
                         <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">Swish Number</p>
@@ -245,7 +232,14 @@ const Offerings = () => {
 
                     <div className="flex justify-between items-center p-3 bg-[rgb(var(--theme-surface))] dark:bg-gray-700 rounded-lg">
                       <div>
-                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">Account Holder</p>
+                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">Account Holder (Short)</p>
+                        <p className="font-medium text-[rgb(var(--theme-on-surface))]">{bankDetails.accountHolderShort}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-between items-center p-3 bg-[rgb(var(--theme-surface))] dark:bg-gray-700 rounded-lg">
+                      <div>
+                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">Account Holder (Full)</p>
                         <p className="font-medium text-[rgb(var(--theme-on-surface))]">{bankDetails.accountHolder}</p>
                       </div>
                     </div>
@@ -256,7 +250,7 @@ const Offerings = () => {
                         <p className="font-medium text-[rgb(var(--theme-on-surface))] text-sm">{bankDetails.iban}</p>
                       </div>
                       <div className="p-3 bg-[rgb(var(--theme-surface))] dark:bg-gray-700 rounded-lg">
-                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">BIC</p>
+                        <p className="text-sm text-[rgb(var(--theme-on-surface)/.6)]">BIC/SWIFT</p>
                         <p className="font-medium text-[rgb(var(--theme-on-surface))]">{bankDetails.bic}</p>
                       </div>
                     </div>
