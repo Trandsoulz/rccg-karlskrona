@@ -14,6 +14,8 @@ const VerseOfTheDay: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentVerse, setCurrentVerse] = useState<Verse | null>(null);
   const [showCopiedFeedback, setShowCopiedFeedback] = useState(false);
+  const [showFacebookCopied, setShowFacebookCopied] = useState(false);
+  const [showInstagramCopied, setShowInstagramCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentDate, setCurrentDate] = useState<string>('');
@@ -131,12 +133,16 @@ const VerseOfTheDay: React.FC = () => {
      */
   }, []); // Empty dependency array = runs once on mount
 
+  // Build base share text once helpers
+  const buildBaseText = (v: Verse) => `"${v.text}" - ${formatVerseReference(v)}`;
+  const buildInstagramText = (v: Verse) => `${buildBaseText(v)}\n\n#VerseOfTheDay #Bible #Faith #RCCG #Christianity #Inspiration #DailyVerse #Scripture #God #Jesus #BibleVerse`;
+
   const handleCopyVerse = async () => {
     // Only proceed if we have a verse loaded
     if (currentVerse) {
       try {
         // Format the verse text with reference for copying
-        const verseText = `"${currentVerse.text}" - ${formatVerseReference(currentVerse)}`;
+  const verseText = buildBaseText(currentVerse);
         
         // Use modern Clipboard API to copy to user's clipboard
         await navigator.clipboard?.writeText(verseText);
@@ -151,6 +157,55 @@ const VerseOfTheDay: React.FC = () => {
         // Could optionally show an error message to user here
       }
     }
+  };
+
+  // FACEBOOK SHARE
+  // We cannot programmatically create a *full* post with prefilled text beyond the quote param.
+  // Using sharer.php with quote is the closest web-supported behavior analogous to tweeting.
+  const handleFacebookShare = async () => {
+    if (!currentVerse) return;
+    const text = buildBaseText(currentVerse);
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+    // Official sharer supports a quote param
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}&quote=${encodeURIComponent(text)}`;
+    const win = window.open(shareUrl, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      // Popup blocked fallback: copy text so user can paste
+      try {
+        await navigator.clipboard?.writeText(text);
+        setShowFacebookCopied(true);
+        setTimeout(()=>setShowFacebookCopied(false), 3000);
+      } catch(e) {
+        console.warn('Facebook share fallback failed', e);
+      }
+    }
+  };
+
+  // INSTAGRAM SHARE
+  // Instagram does NOT offer a web intent like Twitter. We try Web Share API (mobile) so user can pick Instagram.
+  // Fallback: copy text + open instagram.com for manual paste.
+  const handleInstagramShare = async () => {
+    if (!currentVerse) return;
+    const text = buildInstagramText(currentVerse);
+    // Try Web Share API (works on mobile to open native share sheet; user can select Instagram)
+    if (navigator.share) {
+      try {
+        await navigator.share({ text });
+        return; // success
+      } catch (err) {
+        // if user cancels or fails, continue to fallback
+        console.warn('Web Share API failed or dismissed', err);
+      }
+    }
+    try {
+      await navigator.clipboard?.writeText(text);
+      setShowInstagramCopied(true);
+      setTimeout(()=>setShowInstagramCopied(false), 3000);
+    } catch(e) {
+      console.warn('Clipboard copy for Instagram failed', e);
+    }
+    // Open instagram site for user to paste (cannot prefill due to platform restrictions)
+    window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
   };
 
   // Loading State
@@ -177,9 +232,11 @@ const VerseOfTheDay: React.FC = () => {
             </Card>
 
             {/* Skeleton Action Buttons */}
-            <div className="flex justify-center mt-6 space-x-4">
+            <div className="flex flex-wrap justify-center mt-6 gap-3">
               <div className="h-9 w-24 bg-[rgb(var(--theme-on-surface)/.1)] dark:bg-gray-700 rounded animate-pulse"></div>
-              <div className="h-9 w-20 bg-[rgb(var(--theme-on-surface)/.1)] dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-9 w-24 bg-[rgb(var(--theme-on-surface)/.1)] dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-9 w-24 bg-[rgb(var(--theme-on-surface)/.1)] dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-9 w-24 bg-[rgb(var(--theme-on-surface)/.1)] dark:bg-gray-700 rounded animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -263,7 +320,7 @@ const VerseOfTheDay: React.FC = () => {
 
           {/* Share/Save Actions */}
           <div className={`transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <div className="flex justify-center mt-6 space-x-4">
+            <div className="flex flex-wrap justify-center mt-6 gap-3">
               <button
                 onClick={handleCopyVerse}
                 className="flex items-center px-4 py-2 text-[rgb(var(--theme-primary))] hover:text-[rgb(var(--theme-accent))] transition-colors duration-200 text-sm font-medium group cursor-pointer"
@@ -297,7 +354,49 @@ const VerseOfTheDay: React.FC = () => {
                 <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                 </svg>
-                Share
+                Twitter
+              </button>
+              <button
+                onClick={handleFacebookShare}
+                className="flex items-center px-4 py-2 text-[rgb(var(--theme-primary))] hover:text-[rgb(var(--theme-accent))] transition-colors duration-200 text-sm font-medium group cursor-pointer"
+                aria-label="Share verse on Facebook"
+              >
+                {showFacebookCopied ? (
+                  <>
+                    <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                  </>
+                )}
+              </button>
+              <button
+                onClick={handleInstagramShare}
+                className="flex items-center px-4 py-2 text-[rgb(var(--theme-primary))] hover:text-[rgb(var(--theme-accent))] transition-colors duration-200 text-sm font-medium group cursor-pointer"
+                aria-label="Share verse on Instagram"
+              >
+                {showInstagramCopied ? (
+                  <>
+                    <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Instagram
+                  </>
+                )}
               </button>
             </div>
           </div>

@@ -181,7 +181,7 @@ export function Navigation() {
         <div className="mx-auto max-w-[90rem] w-full flex justify-between items-center">
           <div className="flex gap-6">
             <a
-              href="#prayer"
+              href="/prayer-request"
               className="hover:underline transition-colors cursor-pointer whitespace-nowrap"
             >
               Prayer Request
@@ -195,7 +195,7 @@ export function Navigation() {
               RCCG Worldwide
             </a>
             <a
-              href="#beliefs"
+              href="/beliefs"
               className="hover:underline transition-colors cursor-pointer whitespace-nowrap"
             >
               Our Beliefs
@@ -219,7 +219,7 @@ export function Navigation() {
               )}
             </Button>
 
-            <a href="tel:+46735675357">
+            <a href="tel:+46704806322">
               <Button
                 className={`text-white cursor-pointer font-bold rounded-none px-4 py-2 transition-all duration-500 ${getHelplineButtonStyles()}`}
                 size="sm"

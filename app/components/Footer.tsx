@@ -4,7 +4,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Facebook, Youtube, Instagram } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Youtube,
+  Instagram,
+} from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -17,14 +24,6 @@ const Footer: React.FC = () => {
           {/* Church Identity */}
           <div className="lg:col-span-2">
             <div className="flex md:flex-row flex-col md:items-center gap-3 mb-4">
-              <Image
-                src="/logo-rccg-sweden.png"
-                alt="RCCG Sweden Logo"
-                width={100}
-                height={100}
-                priority
-                className="rounded-lg "
-              />
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
                   RCCG King&apos;s Palace Parish
@@ -42,24 +41,36 @@ const Footer: React.FC = () => {
 
             {/* Social Media Links */}
             <div className="flex gap-3">
-             <Link href="https://web.facebook.com/rccg.karlskrona" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm" className="p-2">
-                <Facebook className="h-4 w-4" />
-                <span className="sr-only">Facebook</span>
-              </Button>
-             </Link>
-             <Link href="https://www.youtube.com/@rccgkarlskronasweden2467" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm" className="p-2">
-                <Youtube className="h-4 w-4" />
-                <span className="sr-only">YouTube</span>
-              </Button>
-            </Link>
-            <Link href="https://www.instagram.com/rccgkarlskrona.se/" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm" className="p-2">
-                <Instagram className="h-4 w-4" />
-                <span className="sr-only">Instagram</span>
-              </Button>
-            </Link>
+              <Link
+                href="https://web.facebook.com/rccg.karlskrona"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" size="sm" className="p-2">
+                  <Facebook className="h-4 w-4" />
+                  <span className="sr-only">Facebook</span>
+                </Button>
+              </Link>
+              <Link
+                href="https://www.youtube.com/@rccgkarlskronasweden2467"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" size="sm" className="p-2">
+                  <Youtube className="h-4 w-4" />
+                  <span className="sr-only">YouTube</span>
+                </Button>
+              </Link>
+              <Link
+                href="https://www.instagram.com/rccgkarlskrona.se/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" size="sm" className="p-2">
+                  <Instagram className="h-4 w-4" />
+                  <span className="sr-only">Instagram</span>
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -142,6 +153,11 @@ const Footer: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-slate-600 dark:text-slate-400">
           <span className="text-center">
             © {currentYear} RCCG King&apos;s Palace Parish
+          </span>
+          <span className="hidden sm:inline">•</span>
+          <span className="text-center italic">
+            &quot;Jesus Christ the same yesterday, and today, and forever.&quot;
+            - Hebrews 13:8
           </span>
         </div>
       </div>
